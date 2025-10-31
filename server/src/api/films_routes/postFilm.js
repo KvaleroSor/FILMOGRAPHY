@@ -3,7 +3,7 @@ import postFilm from "../../functions/func_films/postFilm.js";
 
 const router = Router();
 
-router.post("/postFilm", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const filmToPost = req.body;
         const {title, year, film_poster} = filmToPost;

@@ -3,7 +3,7 @@ import updateFilm from "../../functions/func_films/updateFIlm.js";
 
 const router = Router();
 
-router.put("/updateFilm/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const id = req.params.id;
         const paramsToUpdate = req.body;

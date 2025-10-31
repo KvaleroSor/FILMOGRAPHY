@@ -3,7 +3,7 @@ import deleteFilm from "../../functions/func_films/deleteFilm.js";
 
 const router = Router();
 
-router.delete("/deleteFilm/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
         const id = req.params.id;
         const res = await deleteFilm(id);
