@@ -1,14 +1,17 @@
-import mongoose from 'mongoose';
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+
+dotenv.config();
 
 const db = async () => {
-    try{
-        const url = "mongodb://localhost:27017/Filmography";
+    const url = process.env.URL_CONNECTION_MONGO_ATLAS;
+    try {
         await mongoose.connect(url);
         console.log(`✅ 🚀 Conectados a la BBDD`);
-    }catch(err){
+    } catch (err) {
         console.log(`❌ ERROR - No nos hemos podido conectar a la BBDD`);
         console.log(err);
     }
-}
+};
 
 export default db;

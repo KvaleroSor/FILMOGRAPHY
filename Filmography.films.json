@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "69038a460f22e57aa1be7d76"
+  },
+  "title": "Bob Esponja el invencible",
+  "year": "2035",
+  "film_poster": "https://i.pinimg.com/originals/84/0e/ac/840eac3e276dcb8ae54693737eaf8447.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690394d60f22e57aa1be7d79"
+  },
+  "title": "Bob Esponja",
+  "year": "2010",
+  "film_poster": "https://i.pinimg.com/originals/84/0e/ac/840eac3e276dcb8ae54693737eaf8447.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690394e80f22e57aa1be7d7b"
+  },
+  "title": "El Capitán America",
+  "year": "2013",
+  "film_poster": "https://i.pinimg.com/originals/84/0e/ac/840eac3e276dcb8ae54693737eaf8447.jpg",
+  "__v": 0
+}]
