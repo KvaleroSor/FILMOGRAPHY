@@ -1,15 +1,14 @@
+import { useState } from "react";
 import ButtonDeleteFilm from "./ButtonDeleteFilm";
 import ButtonUpdateFilm from "./ButtonUpdateFilm";
 
 const Film = ({film}) => {
-    const {title, year, film_poster} = film;
-
-    console.log(film);
+    const {title, year, film_poster, _id} = film;
 
     return (
         <div className="border border-indigo-400 rounded-2xl grid grid-flow-dense grid-cols-1 auto-rows-auto w-52 bg-blue-950">
             <div className="container-button-delete_film flex justify-end pr-2 -mb-2">
-                <ButtonDeleteFilm />
+                <ButtonDeleteFilm id={_id}/>
             </div>
 
             <div className="container-image-h1-p_elements">

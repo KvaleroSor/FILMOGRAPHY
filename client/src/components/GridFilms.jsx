@@ -1,11 +1,10 @@
 import Film from "./Film.jsx";
-import { peliculas as films } from "../elements/films.js";
 import { useState, useEffect } from "react";
 import getFilms from "./../functions/getFilms.js";
 
-const GridFilms = () => {
+const GridFilms = ({ isRefresh }) => {
     const [isFilm, setIsFilm] = useState([]);
-    
+
     const fetchingFilms = async () => {
         try {
             const data = await getFilms();
@@ -19,7 +18,7 @@ const GridFilms = () => {
     useEffect(() => {
         console.log(isFilm);
         fetchingFilms();
-    }, []);
+    }, [isRefresh]);
 
     return (
         <div className="mx-3 mt-6 flex flex-row flex-wrap place-content-center gap-3">

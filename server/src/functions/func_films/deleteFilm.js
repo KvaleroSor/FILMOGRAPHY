@@ -2,9 +2,9 @@ import Film from "./../../models/films.js";
 
 const deleteFilm = async (id) => {
     try {
-        await Film.findByIdAndDelete(id);
+        const result = await Film.findByIdAndDelete(id);
         console.log("EXITO - PELÍCULA ELIMIADA CORRECTAMENTE");
-        return true;
+        return result;
     } catch (err) {
         console.log("ERROR - NO SE HA PODIDO ELIMINAR LA PELÍCULA");
         console.error(err);
