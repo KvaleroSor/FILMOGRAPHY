@@ -12,7 +12,7 @@ router.put("/:id", async (req, res) => {
             res.status(400).send();
         }
 
-        const updateGenre = await updateGenre(id, paramsToUpdate);
+        const genreUpdated = await updateGenre(id, paramsToUpdate);
 
         !updatedFilm
             ? res.status(404).json({
@@ -21,7 +21,7 @@ router.put("/:id", async (req, res) => {
             : res.status(200).json({
                   mensaje: "EXITO - GÉNERO ACTUALIZADO",
                   data_recibed: paramsToUpdate,
-                  data: updateGenre,
+                  data: genreUpdated,
               });
     } catch (err) {
         res.status(500).json({
