@@ -14,7 +14,7 @@ router.put("/:id", async (req, res) => {
 
         const genreUpdated = await updateGenre(id, paramsToUpdate);
 
-        !updatedFilm
+        !genreUpdated
             ? res.status(404).json({
                   mensaje: "ERROR - NO SE HA PODIDO ACTUALIZAR EL GÉNERO",
               })
