@@ -10,6 +10,9 @@ import updateFilm from "./api/films_routes/updateFilm.js";
 //Genre
 import postGenre from "./api/genre_routes/postGenre.js";
 import getGenre from "./api/genre_routes/getGenre.js";
+import updateGenre from "./api/genre_routes/updateGenre.js";
+import getGenreById from "./api/genre_routes/getGenreById.js";
+import deleteGenre from "./api/genre_routes/deleteGenre.js";
 
 const app = express();
 
@@ -35,5 +38,9 @@ app.use("/api/films", updateFilm);
 
 app.use("/api/genres", getGenre)
 app.use("/api/genres", postGenre);
+app.use("/api/genres", deleteGenre);
+app.use("/api/genres", getGenreById);
+app.use("/api/genres", updateGenre);
+
 
 export default app;
