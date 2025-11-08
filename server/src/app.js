@@ -9,6 +9,7 @@ import updateFilm from "./api/films_routes/updateFilm.js";
 
 //Genre
 import postGenre from "./api/genre_routes/postGenre.js";
+import getGenre from "./api/genre_routes/getGenre.js";
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/api/films", updateFilm);
 ✍🏽🎬 RUTES PER ALS GÈNEROS
 */
 
+app.use("/api/genres", getGenre)
 app.use("/api/genres", postGenre);
 
 export default app;
