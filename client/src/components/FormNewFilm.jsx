@@ -54,9 +54,9 @@ const FormNewFilm = ({
             setIsTypeButton("Crear");
 
             const res = await postFilms(newFilm);
-            const resJson = await postFilmsJson(newFilm, res.new_film._id);
+            // const resJson = await postFilmsJson(newFilm, res.new_film._id);
             console.log(res);
-            console.log(resJson);
+            // console.log(resJson);
         } else {
             const newData = {
                 title: isTitle,
@@ -65,9 +65,9 @@ const FormNewFilm = ({
                 genres: isSelectedGenre
             };
             const res = await updateFilms(isData.id, newData);
-            const resJson = await updateFilmsJson(isData.id, newData);
+            // const resJson = await updateFilmsJson(isData.id, newData);
             console.log(res);
-            console.log(resJson);
+            // console.log(resJson);
         }
 
         setIsRefresh((prev) => !prev);
