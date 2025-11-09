@@ -20,6 +20,8 @@ const FormNewFilm = ({
     const [isTypeButton, setIsTypeButton] = useState("Crear");
     const [isGenre, setIsGenre] = useState("");
     const [isGenreColor, setIsGenreColor] = useState("");
+    const [isButtonGenreClicked, setIsButtonGenreClicked] = useState(false);
+    const [isGenreRefresh, setIsGenreRefresh] = useState(false);
 
     useEffect(() => {
         if (isButtonUpdateClicked && isData) {
@@ -27,8 +29,12 @@ const FormNewFilm = ({
             setIsYear(isData.year);
             setIsFilmPoster(isData.film_poster);
             setIsTypeButton("Update");
+        } else if (isButtonGenreClicked) {
+            setIsGenre("");
+            setIsGenreColor("");
+            setIsButtonGenreClicked(false);
         }
-    }, [isButtonUpdateClicked, isData]);
+    }, [isButtonUpdateClicked, isData, isButtonGenreClicked]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,8 +83,8 @@ const FormNewFilm = ({
 
             const resultPostGenre = await postGenres(newGenre);
             console.log(resultPostGenre);
-            setIsGenre("");
-            setIsGenreColor("");
+            setIsButtonGenreClicked(true);
+            setIsGenreRefresh(prev => !prev);
         }
     };
 
@@ -177,15 +183,13 @@ const FormNewFilm = ({
                                     setIsGenreColor(e.target.value || "");
                                 }}
                             />
-                            <ButtonNewGenre onClick={handleGenre}/>
+                            <ButtonNewGenre onClick={handleGenre} />
                         </div>
                     </div>
                     <div className="container-3_2-form w-full h-full grid grid-flow-dense">
                         <div className="flex flex-wrap justify-center items-center">
                             <GenreList
-                            // isGenre={isGenre}
-                            // isGenreColor={isGenreColor}
-                            // isGenreClicked={isGenreClicked}
+                                isGenreRefresh={isGenreRefresh}
                             />
                         </div>
                     </div>
