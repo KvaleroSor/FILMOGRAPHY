@@ -43,7 +43,7 @@ Un cop carregada la part visual, el següent pas és fer servir el servidor.
 
 ---
 
-### 💾 2️⃣ JSON-SERVER (API simulada)
+### 💾 2️⃣ JSON-SERVER (API simulada) "TEMPORALMENT DESHABILITAT"
 
 📁 **Ruta:** `./client/db.json`
 
