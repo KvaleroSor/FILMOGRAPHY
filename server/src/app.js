@@ -36,11 +36,11 @@ app.use("/api/films", updateFilm);
 ✍🏽🎬 RUTES PER ALS GÈNEROS
 */
 
-app.use("/api/genres", getGenre)
 app.use("/api/genres", postGenre);
 app.use("/api/genres", deleteGenre);
-app.use("/api/genres", getGenreById);
 app.use("/api/genres", updateGenre);
+app.use("/api/genres", getGenre)
+app.use("/api/genres", getGenreById);
 
 
 export default app;

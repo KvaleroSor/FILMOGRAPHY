@@ -1,5 +1,5 @@
 import { Router } from "express";
-import getGenreById from "../../functions/func_genre/getGenreById.js";
+import getGenreById from './../../functions/func_genre/getGenreById.js';
 
 const router = Router();
 
