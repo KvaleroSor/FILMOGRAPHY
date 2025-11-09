@@ -10,6 +10,7 @@ const updateFilms = async (id, data) => {
             title: data.title,
             year: data.year,
             film_poster: data.film_poster,
+            genres: data.genres
         }),
     });
 

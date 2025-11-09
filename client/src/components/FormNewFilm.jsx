@@ -29,13 +29,14 @@ const FormNewFilm = ({
             setIsTitle(isData.title);
             setIsYear(isData.year);
             setIsFilmPoster(isData.film_poster);
+            setIsSelectedGenre(isData.genres);
             setIsTypeButton("Update");
         } else if (isButtonGenreClicked) {
             setIsGenre("");
             setIsGenreColor("");
             setIsButtonGenreClicked(false);
         }
-    }, [isButtonUpdateClicked, isData, isButtonGenreClicked]);
+    }, [isButtonUpdateClicked, isData, isButtonGenreClicked, isSelectedGenre]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -61,6 +62,7 @@ const FormNewFilm = ({
                 title: isTitle,
                 year: isYear,
                 film_poster: isFilmPoster,
+                genres: isSelectedGenre
             };
             const res = await updateFilms(isData.id, newData);
             const resJson = await updateFilmsJson(isData.id, newData);

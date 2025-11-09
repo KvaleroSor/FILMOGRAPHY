@@ -31,21 +31,19 @@ const Genre = ({ id, name, color, isSelectedGenre, setIsSelectedGenre }) => {
 
     return (
         <div
-            className="p-2 px-5 rounded-md bg-indigo-700 text-indigo-300 cursor-pointer flex flex-row h-[3rem]"
+            onClick={handleClick}
+            className={`p-2 px-5 rounded-md cursor-pointer flex flex-row h-[3rem] transition-all duration-200
+      ${
+          isSelected
+              ? "ring-2 ring-white scale-105 opacity-100 m-1"
+              : "opacity-70 hover:opacity-90"
+      }
+      
+    `}
             style={{ backgroundColor: color }}
         >
-            <div className="p-2 self-center">
-                <button
-                    type="button"
-                    onClick={handleClick}
-                    className={`${
-                        isSelected
-                            ? "ring-2 ring-white scale-105"
-                            : "opacity-70"
-                    }`}
-                >
-                    {name}
-                </button>
+            <div className="p-2 self-center text-white font-semibold">
+                {name}
             </div>
             <div className="self-center pl-2">
                 <button>X</button>
