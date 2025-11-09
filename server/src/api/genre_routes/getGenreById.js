@@ -17,6 +17,7 @@ router.get("/:id", async (req, res) => {
     } catch (err) {
         res.status(500).json({
             mesaje: "ERROR - ERROR DEL SERVIDOR",
+            error: err
         });
     }
 });
