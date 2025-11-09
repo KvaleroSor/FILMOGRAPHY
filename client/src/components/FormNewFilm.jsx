@@ -36,7 +36,7 @@ const FormNewFilm = ({
             setIsGenreColor("");
             setIsButtonGenreClicked(false);
         }
-    }, [isButtonUpdateClicked, isData, isButtonGenreClicked, isSelectedGenre]);
+    }, [isButtonUpdateClicked, isData, isButtonGenreClicked]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -96,7 +96,7 @@ const FormNewFilm = ({
     return (
         <div className="w-full h-full grid place-items-center">
             <form
-                className="border border-slate-400 rounded-md bg-slate-800 text-slate-300 2xl:w-[100rem] xl:w-[75rem] lg:w-[60rem] md:w-[40rem] sm:w-[40rem] grid grid-flow-dense grid-cols-1 grid-rows-4 gap-4 pl-4 pr-4 pt-4"
+                className="border border-slate-400 rounded-md bg-slate-800 text-slate-300 2xl:w-[100rem] xl:w-[75rem] lg:w-[60rem] md:w-[40rem] sm:w-[40rem] grid grid-flow-dense grid-cols-1 grid-rows-4 gap-4 pl-4 pr-4 pt-4 grid-rows-[auto_auto_auto]"
                 onSubmit={handleSubmit}
             >
                 <div
@@ -121,7 +121,7 @@ const FormNewFilm = ({
                             }}
                         />
                     </div>
-                    <div className="container-1-form_second-elements w-full h-full grid grid-flow-dense grid-rows-2">
+                    <div className="container-1-form w-full h-full grid grid-flow-dense grid-rows-2">
                         <label
                             htmlFor="year"
                             className="w-full h-full text-slate-600"
@@ -140,7 +140,7 @@ const FormNewFilm = ({
                         />
                     </div>
                 </div>
-                <div className="container-2-form w-full h-full grid grid-flow-dense">
+                <div className="container-2-form w-full h-full grid grid-flow-dense grid-rows-2">
                     <label
                         htmlFor="filmPoster"
                         className="w-full h-full text-slate-600"
@@ -151,7 +151,7 @@ const FormNewFilm = ({
                         type="text"
                         id="image"
                         value={isFilmPoster}
-                        className="h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 pl-2"
+                        className="h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 pl-2 p-2"
                         alt="login"
                         placeholder="Film Poster"
                         onChange={(e) => {
@@ -160,7 +160,7 @@ const FormNewFilm = ({
                     />
                 </div>
                 <div className="container-3-form w-full h-full grid grid-cols-[40%_60%] grid-flow-dense border p-2 rounded-md border-slate-400">
-                    <div className="container-3_1-form w-full h-full grid grid-flow-dense pr-3">
+                    <div className="container-3_1-form w-full h-full grid grid-flow-dense grid-rows-[auto_auto]">
                         <label
                             htmlFor="genre"
                             className="w-full h-full flex text-slate-600"
@@ -172,7 +172,7 @@ const FormNewFilm = ({
                                 type="text"
                                 id="genre"
                                 value={isGenre}
-                                className="justify-start h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 pl-2"
+                                className="justify-start h-[70%] w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 pl-2 p-2"
                                 placeholder="Genre"
                                 onChange={(e) => {
                                     setIsGenre(e.target.value || "");
@@ -182,7 +182,7 @@ const FormNewFilm = ({
                                 type="text"
                                 id="genre_color"
                                 value={isGenreColor}
-                                className="justify-start h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 ml-1 pl-2"
+                                className="justify-start h-[70%] w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 ml-1 pl-2 p-2"
                                 placeholder="Color genre"
                                 onChange={(e) => {
                                     setIsGenreColor(e.target.value || "");
@@ -197,11 +197,12 @@ const FormNewFilm = ({
                                 isGenreRefresh={isGenreRefresh}
                                 isSelectedGenre={isSelectedGenre}
                                 setIsSelectedGenre={setIsSelectedGenre}
+                                setIsGenreRefresh={setIsGenreRefresh}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-button-crear_pelicula grid place-content-center">
+                <div className="container-button-crear_pelicula grid place-content-center p-3">
                     <ButtonNewFilm typeButton={isTypeButton} />
                 </div>
             </form>

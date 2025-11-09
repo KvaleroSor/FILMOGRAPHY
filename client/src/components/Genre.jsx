@@ -1,29 +1,17 @@
-/**
- * 🧑🏽‍💻 Anotaciones
- *
- * TAREAS PENDIENTES
- *
- * 1- Cuando creemos una película y seleccionemos el género, cuando pulsemos sobre el género que
- * se quede seleccionado de otro color.
- *
- * 2- Cuando pulsemos el género de la película y se seleccione, que añada al postFilm.js en el obj
- * que mandamos a mongoDB el id del genero.
- *
- * 3- Cuando editemos una película que los generos de la pelicula salgan seleccionados y si se pulsa
- * sobre ellos que se desseleccionen.
- *
- * 4- Afegir funcionalitat a la eliminació del genre.
- *
- */
+import deleteGenre from './../functions/functions_fetch_genre/deleteGenre.js';
 
-const Genre = ({ id, name, color, isSelectedGenre, setIsSelectedGenre }) => {
-    const handleClick = () => {
+const Genre = ({ id, name, color, setIsGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
+    const handleClick = async (e) => {
+        if (e.target.closest("button")) {
+            const resDelete = await deleteGenre(id);
+            console.log(resDelete);
+            setIsGenreRefresh(prev => !prev);
+            return;
+        }
         if (isSelectedGenre.includes(id)) {
             setIsSelectedGenre(isSelectedGenre.filter((genre) => genre !== id));
-            console.log(isSelectedGenre);
         } else {
             setIsSelectedGenre([...isSelectedGenre, id]);
-            console.log(isSelectedGenre);
         }
     };
 
@@ -31,7 +19,7 @@ const Genre = ({ id, name, color, isSelectedGenre, setIsSelectedGenre }) => {
 
     return (
         <div
-            onClick={handleClick}
+            onClick={(e) => handleClick(e)}
             className={`p-2 px-5 rounded-md cursor-pointer flex flex-row h-[3rem] transition-all duration-200
       ${
           isSelected

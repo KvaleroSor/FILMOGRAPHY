@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getGenres from "../functions/functions_fetch_genre/getGenres.js";
 import Genre from "./Genre.jsx";
 
-const GenreList = ({ isGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
+const GenreList = ({ isGenreRefresh, setIsGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
     const [isDataGenre, setIsDataGenre] = useState([]);
 
     useEffect(() => {
@@ -25,6 +25,7 @@ const GenreList = ({ isGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
                     color={genre.color}
                     isSelectedGenre={isSelectedGenre}
                     setIsSelectedGenre={setIsSelectedGenre}
+                    setIsGenreRefresh={setIsGenreRefresh}
                 />
             ))}
         </div>

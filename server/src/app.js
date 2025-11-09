@@ -1,6 +1,26 @@
 import express from "express";
 import cors from "cors";
 
+/**
+ * 🧑🏽‍💻 Anotaciones
+ *
+ * TAREAS PENDIENTES
+ *
+ * 1- Cuando creemos una película y seleccionemos el género, cuando pulsemos sobre el género que
+ * se quede seleccionado de otro color.
+ *
+ * 2- Cuando pulsemos el género de la película y se seleccione, que añada al postFilm.js en el obj
+ * que mandamos a mongoDB el id del genero.
+ *
+ * 3- Cuando editemos una película que los generos de la pelicula salgan seleccionados y si se pulsa
+ * sobre ellos que se desseleccionen.
+ *
+ * 4- Afegir funcionalitat a la eliminació del genre.
+ *
+ * 5- Solucionar la rotura del botón del genero.
+ *
+ */
+
 //Films
 import getFilm from "./api/films_routes/getFilm.js";
 import postFilm from "./api/films_routes/postFilm.js";
@@ -39,8 +59,7 @@ app.use("/api/films", updateFilm);
 app.use("/api/genres", postGenre);
 app.use("/api/genres", deleteGenre);
 app.use("/api/genres", updateGenre);
-app.use("/api/genres", getGenre)
+app.use("/api/genres", getGenre);
 app.use("/api/genres", getGenreById);
-
 
 export default app;

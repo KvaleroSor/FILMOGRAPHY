@@ -1,4 +1,4 @@
-import { API_URI_GENRE } from "../elements/elements.js";
+import { API_URI_GENRE } from "./../../elements/elements.js";
 
 const deleteGenre = async (id) => {
     const res = await fetch(`${API_URI_GENRE}/${id}`, {
