@@ -84,7 +84,7 @@ Després d’això, s’haurien de mostrar totes les pel·lícules registrades a
 
 ## 🧾 Notes finals
 
-- 🧠 **Render** pot trigar uns segons a respondre després d’un període d’inactivitat.  
+- 🧠 **Render** pot tardar uns segons a respondre després d’un període d’inactivitat.  
 - 🧩 **json-server** serveix com a entorn de proves local per emmagatzemar dades de manera ràpida i senzilla.  
 - 📦 Les dependències s’instal·len per separat a cada subprojecte (`client`, `server`, `json-server`).  
 - 🎯 El projecte mostra el funcionament complet d’una aplicació **Full-Stack** amb React, Node i Mongo, complementada amb una API simulada (`json-server`).
