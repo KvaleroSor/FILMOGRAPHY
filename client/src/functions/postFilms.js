@@ -14,6 +14,7 @@ const postFilms = async (newFilm) => {
             title: newFilm.title,
             year: newFilm.year,
             film_poster: newFilm.film_poster,
+            genres: newFilm.genres
         }),
     });
 
