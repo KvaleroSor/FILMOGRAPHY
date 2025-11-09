@@ -6,7 +6,6 @@ const router = Router();
 router.get("/:id", async (req, res) => {
     try {
         const id = req.params.id;
-
         const genre = await getGenreById(id);
 
         !genre

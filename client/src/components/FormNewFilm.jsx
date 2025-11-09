@@ -132,7 +132,7 @@ const FormNewFilm = ({
                     />
                 </div>
                 <div className="container-3-form w-full h-full grid grid-cols-[30%_70%] grid-flow-dense border p-2 rounded-md border-slate-400">
-                    <div className="container-3-form w-full h-full grid grid-flow-dense pr-3">
+                    <div className="container-3_1-form w-full h-full grid grid-flow-dense pr-3">
                         <label
                             htmlFor="genre"
                             className="w-full h-full flex text-slate-600"
@@ -153,7 +153,7 @@ const FormNewFilm = ({
                             <ButtonNewGenre isGenre={isGenre}/>
                         </div>
                     </div>
-                    <div className="container-3-form w-[15rem] h-full grid grid-flow-dense">
+                    <div className="container-3_2-form w-[15rem] h-full grid grid-flow-dense">
                         <div className="flex flex-wrap justify-center items-center">
                             {/* <p>Prueba</p> */}
                         </div>
