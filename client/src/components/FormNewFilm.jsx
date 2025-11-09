@@ -5,6 +5,8 @@ import updateFilms from "../functions/updateFilms.js";
 import postFilmsJson from "../functions/functions_json/postFilmsJson.js";
 import updateFilmsJson from "../functions/functions_json/udpateFilmsJson.js";
 import ButtonNewGenre from "./ButtonNewGenre.jsx";
+import GenreList from "./GenreList.jsx";
+import postGenres from "../functions/functions_fetch_genre/postGenre.js";
 
 const FormNewFilm = ({
     setIsRefresh,
@@ -17,6 +19,7 @@ const FormNewFilm = ({
     const [isFilmPoster, setIsFilmPoster] = useState("");
     const [isTypeButton, setIsTypeButton] = useState("Crear");
     const [isGenre, setIsGenre] = useState("");
+    const [isGenreColor, setIsGenreColor] = useState("");
 
     useEffect(() => {
         if (isButtonUpdateClicked && isData) {
@@ -63,6 +66,20 @@ const FormNewFilm = ({
         setIsFilmPoster("");
         setIsButtonUpdateClicked(false);
         setIsTypeButton("Crear");
+    };
+
+    const handleGenre = async () => {
+        if (isGenre && isGenreColor) {
+            const newGenre = {
+                name: isGenre,
+                color: isGenreColor,
+            };
+
+            const resultPostGenre = await postGenres(newGenre);
+            console.log(resultPostGenre);
+            setIsGenre("");
+            setIsGenreColor("");
+        }
     };
 
     return (
@@ -131,7 +148,7 @@ const FormNewFilm = ({
                         }}
                     />
                 </div>
-                <div className="container-3-form w-full h-full grid grid-cols-[30%_70%] grid-flow-dense border p-2 rounded-md border-slate-400">
+                <div className="container-3-form w-full h-full grid grid-cols-[40%_60%] grid-flow-dense border p-2 rounded-md border-slate-400">
                     <div className="container-3_1-form w-full h-full grid grid-flow-dense pr-3">
                         <label
                             htmlFor="genre"
@@ -139,23 +156,37 @@ const FormNewFilm = ({
                         >
                             GENRE
                         </label>
-                        <div className="w-full grid grid-cols-[70%_30%]">
+                        <div className="w-full grid grid-cols-[40%_30%_20%]">
                             <input
                                 type="text"
                                 id="genre"
-                                value={isTitle}
+                                value={isGenre}
                                 className="justify-start h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 pl-2"
                                 placeholder="Genre"
                                 onChange={(e) => {
-                                    setIsTitle(e.target.value || "");
+                                    setIsGenre(e.target.value || "");
                                 }}
                             />
-                            <ButtonNewGenre isGenre={isGenre}/>
+                            <input
+                                type="text"
+                                id="genre_color"
+                                value={isGenreColor}
+                                className="justify-start h-full w-full rounded-sm border border-slate-400 bg-slate-600 placeholder:text-slate-200 ml-1 pl-2"
+                                placeholder="Color genre"
+                                onChange={(e) => {
+                                    setIsGenreColor(e.target.value || "");
+                                }}
+                            />
+                            <ButtonNewGenre onClick={handleGenre}/>
                         </div>
                     </div>
-                    <div className="container-3_2-form w-[15rem] h-full grid grid-flow-dense">
+                    <div className="container-3_2-form w-full h-full grid grid-flow-dense">
                         <div className="flex flex-wrap justify-center items-center">
-                            {/* <p>Prueba</p> */}
+                            <GenreList
+                            // isGenre={isGenre}
+                            // isGenreColor={isGenreColor}
+                            // isGenreClicked={isGenreClicked}
+                            />
                         </div>
                     </div>
                 </div>

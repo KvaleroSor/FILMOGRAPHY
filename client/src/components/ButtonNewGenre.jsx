@@ -1,8 +1,10 @@
-const ButtonNewGenre = ({isGenre}) => {
-
-    
+const ButtonNewGenre = ({ onclick }) => {
     return (
-        <button className="button-crear-pelicula ml-3 px-3 rounded-md bg-indigo-700 text-indigo-300 cursor-pointer">
+        <button
+            type="button"
+            className="button-crear-pelicula ml-3 px-3 rounded-md bg-indigo-700 text-indigo-300 cursor-pointer"
+            onClick={onclick}
+        >
             Genero
         </button>
     );

@@ -1,4 +1,4 @@
-import API_URI from "../elements/elements.js";
+import { API_URI } from "../elements/elements.js";
 
 const updateFilms = async (id, data) => {
     const res = await fetch(`${API_URI}/${id}`, {
