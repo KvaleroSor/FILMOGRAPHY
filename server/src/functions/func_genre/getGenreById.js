@@ -2,7 +2,7 @@ import Genre from "./../../models/genres.js";
 
 const getGenreById = async (id) => {
     try {
-        const genre = await Genre.findById({ id });
+        const genre = await Genre.findById(id);
         console.log(genre);
         return genre;
     } catch (err) {
