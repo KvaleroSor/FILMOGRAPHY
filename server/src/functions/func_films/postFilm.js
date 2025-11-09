@@ -2,12 +2,13 @@ import Film from "./../../models/films.js";
 
 const postFilm = async (film) => {
     try {
-        const { title, year, film_poster } = film;
+        const { title, year, film_poster, genres } = film;
 
         const newFilm = await Film.create({
             title: title,
             year: year,
             film_poster: film_poster,
+            genres: genres
         });
 
         return newFilm;
