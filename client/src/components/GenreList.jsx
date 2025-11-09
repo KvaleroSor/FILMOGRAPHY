@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getGenres from "../functions/functions_fetch_genre/getGenres.js";
 import Genre from "./Genre.jsx";
 
-const GenreList = ({ isGenreRefresh }) => {
+const GenreList = ({ isGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
     const [isDataGenre, setIsDataGenre] = useState([]);
 
     useEffect(() => {
@@ -12,13 +12,20 @@ const GenreList = ({ isGenreRefresh }) => {
             setIsDataGenre(result || []);
         };
 
-        fetchingGenres();        
+        fetchingGenres();
     }, [isGenreRefresh]);
 
     return (
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center items-center gap-2">
             {isDataGenre.map((genre) => (
-                <Genre key={genre._id} name={genre.name} color={genre.color} />
+                <Genre
+                    key={genre._id}
+                    id={genre._id}
+                    name={genre.name}
+                    color={genre.color}
+                    isSelectedGenre={isSelectedGenre}
+                    setIsSelectedGenre={setIsSelectedGenre}
+                />
             ))}
         </div>
     );

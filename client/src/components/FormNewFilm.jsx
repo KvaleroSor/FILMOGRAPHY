@@ -22,6 +22,7 @@ const FormNewFilm = ({
     const [isGenreColor, setIsGenreColor] = useState("");
     const [isButtonGenreClicked, setIsButtonGenreClicked] = useState(false);
     const [isGenreRefresh, setIsGenreRefresh] = useState(false);
+    const [isSelectedGenre, setIsSelectedGenre] = useState([]);
 
     useEffect(() => {
         if (isButtonUpdateClicked && isData) {
@@ -39,13 +40,14 @@ const FormNewFilm = ({
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(isButtonUpdateClicked);
+        console.log(isSelectedGenre);
 
         if (!isButtonUpdateClicked) {
             const newFilm = {
                 title: isTitle,
                 year: isYear,
                 film_poster: isFilmPoster,
+                genres: isSelectedGenre,
             };
 
             setIsTypeButton("Crear");
@@ -72,6 +74,7 @@ const FormNewFilm = ({
         setIsFilmPoster("");
         setIsButtonUpdateClicked(false);
         setIsTypeButton("Crear");
+        setIsSelectedGenre([]);
     };
 
     const handleGenre = async () => {
@@ -190,6 +193,8 @@ const FormNewFilm = ({
                         <div className="flex flex-wrap justify-center items-center">
                             <GenreList
                                 isGenreRefresh={isGenreRefresh}
+                                isSelectedGenre={isSelectedGenre}
+                                setIsSelectedGenre={setIsSelectedGenre}
                             />
                         </div>
                     </div>
