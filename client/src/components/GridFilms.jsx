@@ -10,6 +10,8 @@ const GridFilms = ({
 }) => {
     const { isFilms, isLoading, isError } = useContext(FilmContext);
 
+    console.log(isFilms);
+
     if (isLoading) return <h1 className="text-white">Cargando películas...</h1>;
     if (isError) return <h1 className="text-red-500">{isError}</h1>;
     if (!isFilms || isFilms.length === 0)
@@ -17,7 +19,7 @@ const GridFilms = ({
 
     return (
         <div className="mx-3 mt-6 flex flex-row flex-wrap place-content-center gap-3">
-            {isFilms.map((film) => (
+            {isFilms.data.map((film) => (
                 <Film
                     key={film._id}
                     film={film}

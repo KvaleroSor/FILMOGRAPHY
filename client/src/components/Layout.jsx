@@ -1,4 +1,4 @@
-import { FilmProvider } from "./../context/film/FilmProvider.jsx";
+import FilmProvider from "./../context/film/FilmProvider.jsx";
 import { useEffect, useState } from "react";
 import FormNewFilm from "./FormNewFilm.jsx";
 import GridFilms from "./GridFilms.jsx";

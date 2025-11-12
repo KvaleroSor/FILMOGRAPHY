@@ -1,9 +1,9 @@
+import { useContext } from 'react';
+import FilmContext from './../context/film/FilmContext.jsx';
 import { useState, useEffect } from "react";
 import ButtonNewFilm from "./ButtonNewFilm";
 import postFilms from "../functions/postFilms.js";
 import updateFilms from "../functions/updateFilms.js";
-// import postFilmsJson from "../functions/functions_json/postFilmsJson.js";
-// import updateFilmsJson from "../functions/functions_json/udpateFilmsJson.js";
 import ButtonNewGenre from "./ButtonNewGenre.jsx";
 import GenreList from "./GenreList.jsx";
 import postGenres from "../functions/functions_fetch_genre/postGenre.js";
@@ -23,6 +23,7 @@ const FormNewFilm = ({
     const [isButtonGenreClicked, setIsButtonGenreClicked] = useState(false);
     const [isGenreRefresh, setIsGenreRefresh] = useState(false);
     const [isSelectedGenre, setIsSelectedGenre] = useState([]);
+    const { refreshFilms } = useContext(FilmContext);
 
     useEffect(() => {
         if (isButtonUpdateClicked && isData) {
@@ -54,6 +55,7 @@ const FormNewFilm = ({
             setIsTypeButton("Crear");
 
             const res = await postFilms(newFilm);
+            refreshFilms();
             // const resJson = await postFilmsJson(newFilm, res.new_film._id);
             console.log(res);
             // console.log(resJson);
