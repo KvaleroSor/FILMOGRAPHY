@@ -1,37 +1,27 @@
+import { useContext } from "react";
+import { FilmContext } from "./../context/film/FilmContext.jsx";
 import Film from "./Film.jsx";
-import { useState, useEffect } from "react";
-// import fetchingFilms from "../utils/fetchingFilms.js";
-import getFilms from "./../functions/getFilms.js";
 
 const GridFilms = ({
     setIsRefresh,
-    isRefresh,    
+    isRefresh,
     setIsButtonUpdateClicked,
     setIsData,
 }) => {
-    const [isFilm, setIsFilm] = useState([]);
+    const { isFilms, isLoading, isError } = useContext(FilmContext);
 
-    const fetchingFilms = async () => {
-    try {
-        const data = await getFilms();
-        console.log(data);
-        setIsFilm(data.data);
-    } catch (err) {
-        console.log(err);
-    }
-};
-    
-    useEffect(() => {       
-        fetchingFilms();
-    }, [isRefresh]);
+    if (isLoading) return <h1 className="text-white">Cargando películas...</h1>;
+    if (isError) return <h1 className="text-red-500">{isError}</h1>;
+    if (!isFilms || isFilms.length === 0)
+        return <h1 className="text-gray-400">No hay películas aún</h1>;
 
     return (
         <div className="mx-3 mt-6 flex flex-row flex-wrap place-content-center gap-3">
-            {isFilm.map((film) => (
+            {isFilms.map((film) => (
                 <Film
                     key={film._id}
                     film={film}
-                    setIsRefresh={setIsRefresh}                    
+                    setIsRefresh={setIsRefresh}
                     setIsButtonUpdateClicked={setIsButtonUpdateClicked}
                     setIsData={setIsData}
                 />

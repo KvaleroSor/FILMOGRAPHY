@@ -1,3 +1,4 @@
+import { FilmProvider } from "./../context/film/FilmProvider.jsx";
 import { useEffect, useState } from "react";
 import FormNewFilm from "./FormNewFilm.jsx";
 import GridFilms from "./GridFilms.jsx";
@@ -13,22 +14,24 @@ const Layout = () => {
     }, [isRefresh]);
 
     return (
-        <div className="min-h-screen flex flex-col items-center gap-4 overflow-y-auto bg-slate-900">
-            <Header />
+        <FilmProvider>
+            <div className="min-h-screen flex flex-col items-center gap-4 overflow-y-auto bg-slate-900">
+                <Header />
 
-            <FormNewFilm
-                setIsRefresh={setIsRefresh}
-                isButtonUpdateClicked={isButtonUpdateClicked}
-                setIsButtonUpdateClicked={setIsButtonUpdateClicked}
-                isData={isData}
-            />
-            <GridFilms
-                setIsRefresh={setIsRefresh}
-                isRefresh={isRefresh}
-                setIsButtonUpdateClicked={setIsButtonUpdateClicked}
-                setIsData={setIsData}
-            />
-        </div>
+                <FormNewFilm
+                    setIsRefresh={setIsRefresh}
+                    isButtonUpdateClicked={isButtonUpdateClicked}
+                    setIsButtonUpdateClicked={setIsButtonUpdateClicked}
+                    isData={isData}
+                />
+                <GridFilms
+                    setIsRefresh={setIsRefresh}
+                    isRefresh={isRefresh}
+                    setIsButtonUpdateClicked={setIsButtonUpdateClicked}
+                    setIsData={setIsData}
+                />
+            </div>
+        </FilmProvider>
     );
 };
 
