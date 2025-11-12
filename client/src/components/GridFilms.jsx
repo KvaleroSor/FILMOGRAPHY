@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FilmContext } from "./../context/film/FilmContext.jsx";
+import FilmContext from "./../context/film/FilmContext.jsx";
 import Film from "./Film.jsx";
 
 const GridFilms = ({

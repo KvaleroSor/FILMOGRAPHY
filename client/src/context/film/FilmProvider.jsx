@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FilmContext from "./FilmContext.jsx";
-import { useFetch } from "./../../hooks/films_hooks/useFetch.js";
+import useFetch from "./../../hooks/films_hooks/useFetch.js";
 
 const FilmProvider = ({ children }) => {
     const { isData, isLoading, isError, fetchApi } = useFetch();
