@@ -3,10 +3,10 @@ import FilmContext from "./../context/film/FilmContext.jsx";
 import Film from "./Film.jsx";
 
 const GridFilms = ({
-    setIsRefresh,
-    isRefresh,
-    setIsButtonUpdateClicked,
-    setIsData,
+    // setIsRefresh,
+    // isRefresh,
+    // setIsButtonUpdateClicked,
+    // setIsData,
 }) => {
     const { isFilms, isLoading, isError } = useContext(FilmContext);
 
@@ -19,13 +19,13 @@ const GridFilms = ({
 
     return (
         <div className="mx-3 mt-6 flex flex-row flex-wrap place-content-center gap-3">
-            {isFilms.data.map((film) => (
+            {isFilms.map((film) => (
                 <Film
                     key={film._id}
                     film={film}
-                    setIsRefresh={setIsRefresh}
-                    setIsButtonUpdateClicked={setIsButtonUpdateClicked}
-                    setIsData={setIsData}
+                    // setIsRefresh={setIsRefresh}
+                    // setIsButtonUpdateClicked={setIsButtonUpdateClicked}
+                    // setIsData={setIsData}
                 />
             ))}
         </div>

@@ -1,7 +1,9 @@
+
 import ButtonDeleteFilm from "./ButtonDeleteFilm";
 import ButtonUpdateFilm from "./ButtonUpdateFilm";
 
 const Film = ({ setIsRefresh, setIsButtonUpdateClicked, setIsData, film }) => {
+    
     const { title, year, film_poster, _id, genres } = film;
 
     const handleUpdateFilm = () => {
@@ -20,7 +22,8 @@ const Film = ({ setIsRefresh, setIsButtonUpdateClicked, setIsData, film }) => {
     return (
         <div className="border border-indigo-400 rounded-2xl grid grid-flow-dense grid-cols-1 auto-rows-auto w-52 bg-blue-950">
             <div className="container-button-delete_film flex justify-end pr-2 -mb-2">
-                <ButtonDeleteFilm id={_id} setIsRefresh={setIsRefresh} />
+                {/* <ButtonDeleteFilm id={_id} setIsRefresh={setIsRefresh} /> */}
+                <ButtonDeleteFilm id={_id} />
             </div>
 
             <div className="container-image-h1-p_elements">
