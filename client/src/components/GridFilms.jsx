@@ -15,7 +15,7 @@ const GridFilms = ({
     if (isLoading) return <h1 className="text-white">Cargando películas...</h1>;
     if (isError) return <h1 className="text-red-500">{isError}</h1>;
     if (!isFilms || isFilms.length === 0)
-        return <h1 className="text-gray-400">No hay películas aún</h1>;
+        return <h1 className="flex justify-center items-center text-[3rem] text-stone-400">No hay películas aún</h1>;
 
     return (
         <div className="mx-3 mt-6 flex flex-row flex-wrap place-content-center gap-3">
