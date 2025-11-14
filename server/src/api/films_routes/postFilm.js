@@ -9,7 +9,9 @@ router.post("/", async (req, res) => {
         const {title, year, film_poster} = filmToPost;
 
         if (!title || !year || !film_poster) {
-            res.status(204).send();
+            res.status(204).json({
+                mensaje: "Error - NO HAY CONTENIDO ADICIONAL"
+            })
         }
         const newFilm = await postFilm(filmToPost);
 

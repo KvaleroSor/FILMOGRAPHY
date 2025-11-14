@@ -1,7 +1,7 @@
-import { API_URI } from "./../../elements/elements.js";
+import { API_URI } from "../../elements/elements.js";
 import { useState } from "react";
 
-const useFetch = () => {
+const useFetchFilms = () => {
     const [isData, setIsData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(null);
@@ -29,4 +29,4 @@ const useFetch = () => {
     return { isData, fetchApi, isLoading, isError };
 };
 
-export default useFetch;
+export default useFetchFilms;

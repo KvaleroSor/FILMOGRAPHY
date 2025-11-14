@@ -1,5 +1,6 @@
 import FilmContext from "./FilmContext.jsx";
-import useFetch from "./../../hooks/films_hooks/useFetch.js";
+import useFetchFilms from "../../hooks/films_hooks/useFetchFilms.js";
+import useFetchGenre from "./../../hooks/genre_hooks/useFetchGenre.js";
 import { useEffect, useState } from "react";
 import {
     postFilm,
@@ -8,13 +9,13 @@ import {
 } from "./FilmAction.jsx";
 
 const FilmProvider = ({ children }) => {
-    const { isData, isLoading, isError, fetchApi } = useFetch();
+    const { isData, isLoading, isError, fetchApi } = useFetchFilms();
     const {
         isData: genreData,
         isLoading: genreLoading,
         isError: genreError,
-        fetchGenres
-    } = useFetch();
+        fetchApiGenres
+    } = useFetchGenre();
     const [isFilms, setIsFilms] = useState([]);
     const [isGenres, setIsGenres] = useState([]);
 
@@ -24,8 +25,9 @@ const FilmProvider = ({ children }) => {
     };
 
     const refreshGenres = async () => {
-        const data = await fetchGenres();
-        if (data) setIsGenres(data);
+        const data = await fetchApiGenres();
+        if (data) setIsGenres(data.data);
+        
     };
 
     useEffect(() => {

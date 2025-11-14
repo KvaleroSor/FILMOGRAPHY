@@ -1,21 +1,11 @@
-
 import ButtonDeleteFilm from "./ButtonDeleteFilm";
 import ButtonUpdateFilm from "./ButtonUpdateFilm";
 
-const Film = ({ setIsRefresh, setIsButtonUpdateClicked, setIsData, film }) => {
-    
+const Film = ({ setIsButtonUpdateClicked, setIsData, film }) => {    
     const { title, year, film_poster, _id, genres } = film;
 
     const handleUpdateFilm = () => {
-        setIsData({
-            id: _id,
-            title: title,
-            year: year,
-            film_poster: film_poster,
-            genres: genres,
-        });
-
-        setIsRefresh((prev) => !prev);
+        setIsData(film);        
         setIsButtonUpdateClicked(true);
     };
 

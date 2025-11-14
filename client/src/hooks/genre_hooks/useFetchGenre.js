@@ -1,12 +1,12 @@
-import { API_URI_GENRE } from "./../../elements/elements.js";
+import { API_URI_GENRE } from "../../elements/elements.js";
 import { useState } from "react";
 
-const useFetch = () => {
+const useFetchGenre = () => {
     const [isData, setIsData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(null);
 
-    const fetchApi = async () => {
+    const fetchApiGenres = async () => {
         try {
             setIsLoading(true);
 
@@ -28,7 +28,7 @@ const useFetch = () => {
         }
     };
 
-    return { isData, fetchApi, isLoading, isError };
+    return { isData, fetchApiGenres, isLoading, isError };
 };
 
-export default useFetch;
+export default useFetchGenre;

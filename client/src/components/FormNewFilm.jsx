@@ -2,18 +2,19 @@ import { useContext } from 'react';
 import FilmContext from './../context/film/FilmContext.jsx';
 import { useState, useEffect } from "react";
 import ButtonNewFilm from "./ButtonNewFilm";
-import postFilms from "../functions/postFilms.js";
-import updateFilms from "../functions/updateFilms.js";
+// import postFilms from "../functions/postFilms.js";
+// import updateFilms from "../functions/updateFilms.js";
 import ButtonNewGenre from "./ButtonNewGenre.jsx";
 import GenreList from "./GenreList.jsx";
 import postGenres from "../functions/functions_fetch_genre/postGenre.js";
 
 const FormNewFilm = ({
-    setIsRefresh,
+    // setIsRefresh,
     isButtonUpdateClicked,
     setIsButtonUpdateClicked,
     isData,
 }) => {
+    const { addFilm, updFilm, refreshGenres } = useContext(FilmContext);
     const [isTitle, setIsTitle] = useState("");
     const [isYear, setIsYear] = useState("");
     const [isFilmPoster, setIsFilmPoster] = useState("");
@@ -37,42 +38,35 @@ const FormNewFilm = ({
             setIsGenreColor("");
             setIsButtonGenreClicked(false);
         }
-    }, [isButtonUpdateClicked, isData, isButtonGenreClicked]);
+    }, [isButtonUpdateClicked, isData]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        console.log(isSelectedGenre);
+        e.preventDefault();        
+        
+        const filmData = {
+            title: isTitle,
+            year: isYear,
+            film_poster: isFilmPoster,
+            genres: isSelectedGenre,
+        };
 
         if (!isButtonUpdateClicked) {
-            const newFilm = {
-                title: isTitle,
-                year: isYear,
-                film_poster: isFilmPoster,
-                genres: isSelectedGenre,
-            };
 
             setIsTypeButton("Crear");
 
-            const res = await postFilms(newFilm);
+            await addFilm(filmData);
             refreshFilms();
-            // const resJson = await postFilmsJson(newFilm, res.new_film._id);
-            console.log(res);
+            // const resJson = await postFilmsJson(filmData, res.new_film._id);
+            // console.log(res);
             // console.log(resJson);
-        } else {
-            const newData = {
-                title: isTitle,
-                year: isYear,
-                film_poster: isFilmPoster,
-                genres: isSelectedGenre
-            };
-            const res = await updateFilms(isData.id, newData);
+        } else {            
+            await updFilm(isData.id, filmData);
             // const resJson = await updateFilmsJson(isData.id, newData);
-            console.log(res);
+            // console.log(res);
             // console.log(resJson);
         }
 
-        setIsRefresh((prev) => !prev);
+        // setIsRefresh((prev) => !prev);
         setIsTitle("");
         setIsYear("");
         setIsFilmPoster("");
@@ -88,11 +82,13 @@ const FormNewFilm = ({
                 color: isGenreColor,
             };
 
-            const resultPostGenre = await postGenres(newGenre);
-            console.log(resultPostGenre);
-            setIsButtonGenreClicked(true);
-            setIsGenreRefresh(prev => !prev);
+            await postGenres(newGenre);            
+            refreshGenres();
+            // setIsButtonGenreClicked(true);
+            // setIsGenreRefresh(prev => !prev);
         }
+        setIsGenre("");
+        setIsGenreColor("");
     };
 
     return (

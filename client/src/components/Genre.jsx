@@ -1,11 +1,16 @@
+import { useContext } from "react";
+import FilmContext from "./../context/film/FilmContext.jsx";
 import deleteGenre from './../functions/functions_fetch_genre/deleteGenre.js';
 
 const Genre = ({ id, name, color, setIsGenreRefresh, isSelectedGenre, setIsSelectedGenre }) => {
+    const { refreshGenres } = useContext(FilmContext);
+
     const handleClick = async (e) => {
         if (e.target.closest("button")) {
             const resDelete = await deleteGenre(id);
-            console.log(resDelete);
-            setIsGenreRefresh(prev => !prev);
+            // console.log(resDelete);
+            refreshGenres();
+            // setIsGenreRefresh(prev => !prev);
             return;
         }
         if (isSelectedGenre.includes(id)) {
